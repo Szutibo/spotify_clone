@@ -110,26 +110,25 @@ const TopPlay = () => {
           className='mt-4'
         >
           {
-            topPlays?.map((artist, i) => {
-              <SwiperSlide
-                key={artist?.key}
-                style={{ width: '25%', height: 'auto' }}
-                className='shadow-lg rounded-full animate-sliderlight'
-              >
-                <p>Szösz</p>
-                {artist.artists !== undefined ? (
-                  <Link to={`/artists/${artist?.artists[0].adamid}`}>
-                    <img src={artist?.images.background} alt='name' className='rounded-full w-full object-cover' />
-                  </Link>
-                )
-                  : (
-                    <img src={artist?.hub.image} alt='name' className='rounded-full w-full object-cover' />
-                  )
-                }
-              </SwiperSlide>
+    topPlays?.map((artist, i) => (
+      <SwiperSlide
+        key={artist?.key}
+        style={{ width: '25%', height: 'auto' }}
+        className='shadow-lg rounded-full animate-sliderlight items-center'
+      >
+        {artist.artists !== undefined ? (
+          <Link to={`/artists/${artist?.artists[0].adamid}`}>
+            <img src={artist?.images.background} alt='name' className='rounded-full w-full object-cover' />
+          </Link>
+        )
+          : (
+            <img style={{marginTop: '30%'}} src={artist?.hub.image} alt='name' className='rounded-full w-full object-cover' />
+          )
+        }
+      </SwiperSlide>
 
-            })
-          }
+    ))
+  }
         </Swiper>
       </div>
     </div>
